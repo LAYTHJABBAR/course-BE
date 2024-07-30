@@ -2,12 +2,13 @@ from flask import Flask
 from config import Config
 from pymongo import MongoClient
 from routes import main
+import certifi
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    client = MongoClient(app.config['MONGO_URI'])
+    client = MongoClient(app.config['MONGO_URI'], tlsCAFile=certifi.where())
     db = client[app.config['MONGO_DBNAME']]
 
     app.register_blueprint(main, url_prefix='/api')
