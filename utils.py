@@ -1,5 +1,5 @@
 from datetime import datetime
-from .models import normalize_data
+from models import normalize_data
 from pymongo import MongoClient
 import pandas as pd
 

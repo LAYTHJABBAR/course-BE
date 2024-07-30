@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify, current_app
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from .models import normalize_data
-from .utils import check_and_refresh_data
+from models import normalize_data
+from utils import check_and_refresh_data
 
 main = Blueprint('main', __name__)
 
